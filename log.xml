@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites failures="4" errors="8" tests="11" assertions="11" skipped="0">
+  <testsuite name="sfTestFunctionalBase.class" file="C:\xampp\htdocs\symfony\lib\vendor\symfony\lib\test\sfTestFunctionalBase.class.php" failures="1" errors="8" skipped="0" tests="1" assertions="1">
+    <testcase name="An uncaught exception has been thrown." file="C:\xampp\htdocs\symfony\lib\vendor\symfony\lib\test\sfTestFunctionalBase.class.php" line="511" assertions="1">
+      <failure type="lime"/>
+    </testcase>
+  </testsuite>
+  <testsuite name="sfTestFunctionalBase.class" file="C:\xampp\htdocs\symfony\lib\vendor\symfony\lib\test\sfTestFunctionalBase.class.php" failures="2" errors="0" skipped="0" tests="" assertions="">
+    <testcase name="request parameter &quot;module&quot; is &quot;job&quot;" file="C:\xampp\htdocs\symfony\lib\vendor\symfony\lib\test\sfTesterRequest.class.php" line="48" assertions="1"/>
+    <testcase name="request parameter &quot;action&quot; is &quot;index&quot;" file="C:\xampp\htdocs\symfony\lib\vendor\symfony\lib\test\sfTesterRequest.class.php" line="48" assertions="1"/>
+    <testcase name="response selector &quot;.jobs td.position:contains(&quot;expired&quot;)&quot; does not exist" file="C:\xampp\htdocs\symfony\lib\vendor\symfony\lib\test\sfTesterResponse.class.php" line="85" assertions="1"/>
+    <testcase name="response selector &quot;.category_programming tr&quot; matches &quot;10&quot; times" file="C:\xampp\htdocs\symfony\lib\vendor\symfony\lib\test\sfTesterResponse.class.php" line="93" assertions="1">
+      <failure type="lime">           got: 0
+      expected: 10</failure>
+    </testcase>
+    <testcase name="response selector &quot;.category_design .more_jobs&quot; does not exist" file="C:\xampp\htdocs\symfony\lib\vendor\symfony\lib\test\sfTesterResponse.class.php" line="85" assertions="1"/>
+    <testcase name="response selector &quot;.category_programming .more_jobs&quot; exists" file="C:\xampp\htdocs\symfony\lib\vendor\symfony\lib\test\sfTesterResponse.class.php" line="89" assertions="1">
+      <failure type="lime">      0
+          &gt;
+      0</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="JobeetTest" file="C:\xampp\htdocs\symfony\test\unit\JobeetTest.php" failures="0" errors="0" skipped="0" tests="9" assertions="9">
+    <testcase name="::slugify() converts all characters to lower case" file="C:\xampp\htdocs\symfony\test\unit\JobeetTest.php" line="9" assertions="1"/>
+    <testcase name="::slugify() replaces a white space by a -" file="C:\xampp\htdocs\symfony\test\unit\JobeetTest.php" line="10" assertions="1"/>
+    <testcase name="::slugify() replaces several white spaces by a single -" file="C:\xampp\htdocs\symfony\test\unit\JobeetTest.php" line="11" assertions="1"/>
+    <testcase name="::slugify() removes - at the beginning of a string" file="C:\xampp\htdocs\symfony\test\unit\JobeetTest.php" line="12" assertions="1"/>
+    <testcase name="::slugify() removes - at the end of a string" file="C:\xampp\htdocs\symfony\test\unit\JobeetTest.php" line="13" assertions="1"/>
+    <testcase name="::slugify() replaces non-ASCII characters by a -" file="C:\xampp\htdocs\symfony\test\unit\JobeetTest.php" line="14" assertions="1"/>
+    <testcase name="::slugify() converts the empty string to n-a" file="C:\xampp\htdocs\symfony\test\unit\JobeetTest.php" line="15" assertions="1"/>
+    <testcase name="::slugify() converts a string that only contains non-ASCII characters to n-a" file="C:\xampp\htdocs\symfony\test\unit\JobeetTest.php" line="16" assertions="1"/>
+    <testcase name="::slugify() removes accents" file="C:\xampp\htdocs\symfony\test\unit\JobeetTest.php" line="17" assertions="1"/>
+  </testsuite>
+  <testsuite name="JobeetJobTest" file="C:\xampp\htdocs\symfony\test\unit\model\JobeetJobTest.php" failures="1" errors="0" skipped="0" tests="1" assertions="1"/>
+</testsuites>
