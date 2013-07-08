@@ -1,5 +1,4 @@
-<h1>New Jobeet job</h1>
-
+<!-- apps/frontend/modules/job/templates/newSuccess.php -->
 <?php use_stylesheet('job.css') ?>
  
 <h1>Post a Job</h1>
