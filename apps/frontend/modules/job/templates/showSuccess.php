@@ -1,4 +1,9 @@
 <!-- apps/frontend/modules/job/templates/showSuccess.php -->
+<?php if ($sf_request->getParameter('token') == $job->getToken()): ?>
+  <?php include_partial('job/admin', array('job' => $job)) ?>
+<?php endif ?>
+
+<!-- apps/frontend/modules/job/templates/showSuccess.php -->
 <?php use_stylesheet('job.css') ?>
 <?php use_helper('Text') ?>
 <?php slot('title') ?>

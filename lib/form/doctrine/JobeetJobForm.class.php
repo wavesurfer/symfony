@@ -15,9 +15,10 @@ class JobeetJobForm extends BaseJobeetJobForm
   {
     unset(
       $this['created_at'], $this['updated_at'],
-      $this['expires_at'], $this['is_activated']
+      $this['expires_at'], $this['is_activated'],
+      $this['token']
     );
- 
+    
     $this->validatorSchema['email'] = new sfValidatorAnd(array(
       $this->validatorSchema['email'],
       new sfValidatorEmail(),
