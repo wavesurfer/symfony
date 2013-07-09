@@ -1,0 +1,31 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           JobeetJob
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          jobeet_job
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+# apps/backend/modules/job/config/generator.yml
+    config:
+      list:
+        title:   Job Management
+        layout:  stacked
+        display: [company, position, location, url, is_activated, email]
+        params:  |
+          %%is_activated%% <small>%%category_id%%</small> - %%company%%
+           (<em>%%email%%</em>) is looking for a %%=position%% (%%location%%)
+        sort: [expires_at, desc]
+        max_per_page: 15
+        actions:
+          deleteNeverActivated: { label: Delete never activated jobs, action: foo }
+      form:
+        class: BackendJobeetJobForm        
+        display:
+          Content: [category_id, type, company, logo, url, position, location, description, how_to_apply, is_public, email]
+          Admin:   [_generated_token, is_activated, expires_at]      
