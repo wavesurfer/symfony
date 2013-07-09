@@ -55,8 +55,8 @@ JobeetJob:
       customers in aircraft maintenance and overhaul
     how_to_apply: |
       online
-    is_public:    true
-    is_activated: true
+    is_public:    false
+    is_activated: false
     token:        dllll24374
     email:        info@luftahnsa.com
     expires_at:   '2016-10-10'
