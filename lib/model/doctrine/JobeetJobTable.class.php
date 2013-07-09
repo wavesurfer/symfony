@@ -19,6 +19,17 @@ class JobeetJobTable extends Doctrine_Table
     return self::$types;
   }
   
+  public function getForToken(array $parameters)
+  {
+    $affiliate = Doctrine_Core::getTable('JobeetAffiliate') ->findOneByToken($parameters['token']);
+    if (!$affiliate || !$affiliate->getIsActive())
+    {
+      throw new sfError404Exception(sprintf('Affiliate with token "%s" does not exist or is not activated.', $parameters['token']));
+    }
+ 
+    return $affiliate->getActiveJobs();
+  }  
+  
   public function retrieveActiveJob(Doctrine_Query $q)
   {
     return $this->addActiveJobsQuery($q)->fetchOne();
