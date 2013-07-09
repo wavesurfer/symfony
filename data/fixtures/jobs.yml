@@ -20,7 +20,7 @@ JobeetJob:
     is_activated: true
     token:        job_sensio_labs
     email:        job@example.com
-    expires_at:   '2010-10-10'
+    expires_at:   '2016-10-10'
     
   Airbus:
     JobeetCategory: manager
@@ -55,10 +55,10 @@ JobeetJob:
       customers in aircraft maintenance and overhaul
     how_to_apply: |
       online
-    is_public:    false
-    is_activated: false
+    is_public:    true
+    is_activated: true
     token:        dllll24374
-    email:        info@luftahnsa.com
+    email:        info@lufthansa.com
     expires_at:   '2016-10-10'
     
   Airbus Military:
@@ -104,7 +104,7 @@ JobeetJob:
     is_activated: true
     token:        job_extreme_sensio
     email:        job@example.com
-    expires_at:   '2010-10-10'
+    expires_at:   '2016-10-10'
     
 # other jobs
  
@@ -120,6 +120,7 @@ JobeetJob:
     created_at:     '2005-12-01 00:00:00'
     token:          job_expired
     email:          job@example.com    
+    expires_at:   '2016-10-10'
     
 # Starts at the beginning of the line (no whitespace before)
 <?php for ($i = 100; $i <= 130; $i++): ?>
@@ -137,5 +138,6 @@ JobeetJob:
     is_activated: true
     token:        job_<?php echo $i."\n" ?>
     email:        job@example.com
+    expires_at:   '2016-10-10'
  
 <?php endfor ?>    
