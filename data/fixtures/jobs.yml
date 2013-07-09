@@ -61,6 +61,25 @@ JobeetJob:
     email:        info@lufthansa.com
     expires_at:   '2016-10-10'
     
+  Lufthansa :
+    JobeetCategory: manager
+    type:         full-time
+    company:      Lufthansa 
+    logo:         hansa.png
+    url:          http://www.lufthansa.com/
+    position:     Route Manager
+    location:     New York, USA
+    description:  |
+      you are resonsible for all route services
+      of Lufthansa in Eastern USA
+    how_to_apply: |
+      online
+    is_public:    true
+    is_activated: true
+    token:        ldzwfdwe333
+    email:        info@lufthansa.com
+    expires_at:   '2016-10-10'
+    
   Airbus Military:
     JobeetCategory: manager
     type:         full-time
