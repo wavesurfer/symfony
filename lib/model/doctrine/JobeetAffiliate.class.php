@@ -10,8 +10,23 @@
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
+// lib/model/doctrine/JobeetAffiliate.class.php
 class JobeetAffiliate extends BaseJobeetAffiliate
 {
+  public function activate()
+  {
+    $this->setIsActive(true);
+ 
+    return $this->save();
+  }
+ 
+  public function deactivate()
+  {
+    $this->setIsActive(false);
+ 
+    return $this->save();
+  }
+  
   public function __toString()
   {
     return $this->getUrl();
