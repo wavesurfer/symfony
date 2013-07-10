@@ -8,12 +8,47 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
+// apps/frontend/modules/job/actions/actions.class.php
 class jobActions extends sfActions
 {
-  public function executeIndex(sfWebRequest $request)
+   // apps/frontend/modules/job/actions/actions.class.php
+   public function executeSearch(sfWebRequest $request)
     {
-      $this->categories = Doctrine_Core::getTable('JobeetCategory')->getWithJobs();
+      $this->forwardUnless($query = $request->getParameter('query'), 'job', 'index');
+
+      $this->jobs = Doctrine_Core::getTable('JobeetJob')->getForLuceneQuery($query);
+
+      if ($request->isXmlHttpRequest())
+      {
+        if ('*' == $query || !$this->jobs)
+        {
+          return $this->renderText('No results.');
+        }
+
+        return $this->renderPartial('job/list', array('jobs' => $this->jobs));
+      }
     }
+  // apps/frontend/modules/job/actions/actions.class.php
+  public function executeIndex(sfWebRequest $request)
+  {
+    if (!$request->getParameter('sf_culture'))
+    {
+      if ($this->getUser()->isFirstRequest())
+      {
+        $culture = $request->getPreferredCulture(array('en', 'fr'));
+        $this->getUser()->setCulture($culture);
+        $this->getUser()->isFirstRequest(false);
+      }
+      else
+      {
+        $culture = $this->getUser()->getCulture();
+      }
+
+      $this->redirect('localized_homepage');
+    }
+
+    $this->categories = Doctrine_Core::getTable('JobeetCategory')->getWithJobs();
+  }
 
   public function executeShow(sfWebRequest $request)
   {

@@ -8,6 +8,12 @@ prod:
       level:   err
       loggers: ~
 
+  mailer:
+    param:
+      delivery_strategy: none
+      transport:
+        class:  Swift_MailTransport
+
 test:
   storage:
     class: sfSessionTestStorage
@@ -22,6 +28,8 @@ test:
   mailer:
     param:
       delivery_strategy: none
+      transport:
+        class:  Swift_MailTransport
 
 dev:
   mailer:

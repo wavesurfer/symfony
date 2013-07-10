@@ -19,6 +19,25 @@ class JobeetJobTable extends Doctrine_Table
     return self::$types;
   }
   
+  // lib/model/doctrine/JobeetJobTable.class.php
+  static public function getLuceneIndex()
+  {
+    ProjectConfiguration::registerZend();
+
+    if (file_exists($index = self::getLuceneIndexFile()))
+    {
+      return Zend_Search_Lucene::open($index);
+    }
+
+    return Zend_Search_Lucene::create($index);
+  }
+
+  static public function getLuceneIndexFile()
+  {
+    return sfConfig::get('sf_data_dir').'/job.'.sfConfig::get('sf_environment').'.index';
+  }  
+  
+  
   public function getForToken(array $parameters)
   {
     $affiliate = Doctrine_Core::getTable('JobeetAffiliate') ->findOneByToken($parameters['token']);
@@ -81,5 +100,30 @@ class JobeetJobTable extends Doctrine_Table
         ->andWhere('a.created_at < ?', date('Y-m-d', time() - 86400 * $days));
 
       return $q->execute();
-    }  
+    } 
+    
+    // lib/model/doctrine/JobeetJobTable.class.php
+    public function getForLuceneQuery($query)
+    {
+      $hits = self::getLuceneIndex()->find($query);
+
+      $pks = array();
+      foreach ($hits as $hit)
+      {
+        $pks[] = $hit->pk;
+      }
+
+      if (empty($pks))
+      {
+        return array();
+      }
+
+      $q = $this->createQuery('j')
+        ->whereIn('j.id', $pks)
+        ->limit(20);
+
+      $q = $this->addActiveJobsQuery($q);
+
+      return $q->execute();
+    }    
 }
