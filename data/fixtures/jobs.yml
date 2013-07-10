@@ -46,7 +46,7 @@ JobeetJob:
     JobeetCategory: manager
     type:         full-time
     company:      Lufthansa Technik
-    logo:         lufthansa.png
+    logo:         hansa.png
     url:          http://www.lufthansa.com/
     position:     Team Leader After Sales
     location:     Hamburg, Germany
@@ -65,7 +65,7 @@ JobeetJob:
     JobeetCategory: manager
     type:         full-time
     company:      Lufthansa 
-    logo:         lufthansa.png
+    logo:         hansa.png
     url:          http://www.lufthansa.com/
     position:     Route Manager
     location:     New York, USA
