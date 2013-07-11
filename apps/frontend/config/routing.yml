@@ -37,11 +37,12 @@ job_show_user:
     id:        \d+
     sf_method: get
     
+# apps/frontend/config/routing.yml
 category:
   url:     /:sf_culture/category/:slug.:sf_format
   class:   sfDoctrineRoute
   param:   { module: category, action: show, sf_format: html }
-  options: { model: JobeetCategory, type: object }
+  options: { model: JobeetCategory, type: object, method: doSelectForSlug }
   requirements:
     sf_format: (?:html|atom)
  
