@@ -63,7 +63,7 @@ localized_homepage:
   url:   /:sf_culture/
   param: { module: job, action: index }
   requirements:
-    sf_culture: (?:fr|en)    
+    sf_culture: (?:de|fr|en|it)    
  
 # apps/frontend/config/routing.yml
 change_language:

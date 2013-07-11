@@ -24,7 +24,7 @@ class languageActions extends sfActions
   {
     $form = new sfFormLanguage(
       $this->getUser(),
-      array('languages' => array('en', 'fr'))
+      array('languages' => array('de','en','fr','it'))
     );
  
     $form->process($request);
