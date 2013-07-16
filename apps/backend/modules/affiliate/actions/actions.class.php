@@ -21,7 +21,7 @@ class affiliateActions extends autoAffiliateActions
  
     // send an email to the affiliate
     $message = $this->getMailer()->compose(
-      array('hans.lieberich@freenet.de' => 'Jobeet Bot'),
+      array('h-j.lieberich@asdag.com' => 'Jobeet Bot'),
       $affiliate->getEmail(),
       'Jobeet affiliate token',
       <<<EOF
@@ -32,8 +32,15 @@ Your token is {$affiliate->getToken()}.
 The Jobeet Bot.
 EOF
     );
- 
+
+
+//echo'<pre>';
+//print_r($this->getMailer()->send($message));
+//exit;
+
     $this->getMailer()->send($message);
+    
+    
  
     $this->redirect('jobeet_affiliate');
   }

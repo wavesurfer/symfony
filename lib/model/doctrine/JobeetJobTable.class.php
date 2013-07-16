@@ -14,6 +14,15 @@ class JobeetJobTable extends Doctrine_Table
     'freelance' => 'Freelance',
   );
  
+  public function getLatestPost()
+  {
+    $q = Doctrine_Query::create()->from('JobeetJob j');
+ 
+    $this->addActiveJobsQuery($q);
+ 
+    return $q->fetchOne();
+  }
+  
   public function getTypes()
   {
     return self::$types;
